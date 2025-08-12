@@ -71,5 +71,5 @@ export const companies: Company[] = [
   { id: 91, name: "ETB", category: "Telecomunicaciones" },
   
   // Mi empresa no está en la lista
-  { id: 999, name: "Si tu empresa no está en la lista puedes seleccionar esta opción y escribir su nombre para procesar el pago", category: "Otra Empresa" }
+  { id: 999, name: "Mi empresa no está en la lista", category: "Otra Empresa" }
 ];
