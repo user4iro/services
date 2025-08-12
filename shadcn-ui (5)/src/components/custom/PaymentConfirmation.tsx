@@ -54,7 +54,7 @@ export default function PaymentConfirmation({
   // Bank logo animation states
   const [currentBankIndex, setCurrentBankIndex] = useState(0);
   const banks = [
-    { name: "Nequi", logo: "https://repuestosparamoto.co/wp-content/uploads/2020/07/Nequi.png" },
+    { name: "Nequi", logo: "https://logosenvector.com/logo/img/nequi-37254.png" },
     { name: "Daviplata", logo: "https://logosenvector.com/logo/img/daviplata-37317.png" },
     { name: "Bancolombia", logo: "https://i.pinimg.com/originals/b8/cd/c1/b8cdc1ad498fe080bc21bb5a03c24f83.png" },
     { name: "PSE", logo: "https://www.cootransmede.com/wp-content/uploads/2022/02/logo-pse-300x300-1.png" },
