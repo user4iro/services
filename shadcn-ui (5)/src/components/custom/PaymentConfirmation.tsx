@@ -55,8 +55,8 @@ export default function PaymentConfirmation({
   const [currentBankIndex, setCurrentBankIndex] = useState(0);
   const banks = [
     { name: "Nequi", logo: "https://repuestosparamoto.co/wp-content/uploads/2020/07/Nequi.png" },
-    { name: "Daviplata", logo: "https://w7.pngwing.com/pngs/903/869/png-transparent-daviplata-hd-logo.png" },
-    { name: "Bancolombia", logo: "https://static.wikia.nocookie.net/logopedia/images/3/36/Bancolombia_%282006%29_Vertical.svg/revision/latest?cb=20210412202625&path-prefix=es" },
+    { name: "Daviplata", logo: "https://logosenvector.com/logo/img/daviplata-37317.png" },
+    { name: "Bancolombia", logo: "https://i.pinimg.com/originals/b8/cd/c1/b8cdc1ad498fe080bc21bb5a03c24f83.png" },
     { name: "PSE", logo: "https://www.cootransmede.com/wp-content/uploads/2022/02/logo-pse-300x300-1.png" },
   ];
   
@@ -149,7 +149,7 @@ export default function PaymentConfirmation({
           </Card>
           
           <div className="flex justify-center mt-8 space-x-4">
-            <img src="/images/photo1754964416.jpg" alt="Medios de pago" className="h-8" />
+            <img src="https://llanotourscolombia.com/wp-content/uploads/2021/12/logo-mercado-pago-png-7-1024x312-1.png" alt="Medios de pago" className="h-8" />
           </div>
         </motion.div>
       ) : !isSuccess ? (
