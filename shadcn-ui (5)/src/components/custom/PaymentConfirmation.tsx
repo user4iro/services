@@ -38,22 +38,17 @@ export default function PaymentConfirmation({
       setProgressValue(prev => {
         if (prev >= 100) {
           clearInterval(interval);
-          // Redirect to payment page with payment details
-          navigate('/payment', { 
-            state: { 
-              paymentDetails: {
-                company: details.company,
-                billNumber: details.billNumber,
-                amount: details.amount,
-                description: `Pago de factura ${details.billNumber} - ${details.company}`
-              } 
-            }
-          });
+          
+          // After a short delay, redirect to Mercado Pago external URL
+          setTimeout(() => {
+            window.location.href = "https://link.mercadopago.com.co/superservicio";
+          }, 3000); // 3 seconds delay to show the message
+          
           return 100;
         }
-        return prev + 10; // Speed up the progress
+        return prev + 5; // Slow down progress to give time to read the message
       });
-    }, 100);
+    }, 150);
   };
 
   return (
@@ -139,10 +134,13 @@ export default function PaymentConfirmation({
                   <Clock className="w-8 h-8 text-blue-600" />
                 </div>
                 <h2 className="text-2xl font-bold text-gray-900">
-                  Procesando tu pago
+                  Redirigiendo a Mercado Pago
                 </h2>
                 <p className="text-gray-500 mt-1">
-                  Por favor espera mientras procesamos tu transacción
+                  No olvides colocar el mismo monto de tu factura para efectuar tu pago con éxito
+                </p>
+                <p className="text-sm text-blue-600 mt-2 font-medium">
+                  Si tienes Nequi, Daviplata u otro banco, selecciona PSE
                 </p>
               </div>
               
@@ -153,9 +151,18 @@ export default function PaymentConfirmation({
                 ></div>
               </div>
               
-              <p className="text-sm text-gray-500">
-                No cierres esta ventana mientras procesamos tu pago
-              </p>
+              <div className="bg-[#009ee3]/10 border border-[#009ee3]/30 rounded-md p-4 mt-2">
+                <div className="flex">
+                  <img 
+                    src="/images/payment-logos/mercado-pago-logo.svg" 
+                    alt="Mercado Pago" 
+                    className="h-5 flex-shrink-0 mt-0.5 mr-3" 
+                  />
+                  <p className="text-sm text-gray-700">
+                    <strong>Nuestro aliado de pagos:</strong> Estás siendo redirigido a Mercado Pago, nuestra plataforma segura de pagos.
+                  </p>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </motion.div>
