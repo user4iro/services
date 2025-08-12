@@ -26,11 +26,12 @@ const MercadoPagoSection = () => {
                 </div>
               </div>
               <Button asChild size="lg" className="bg-white text-[#009ee3] hover:bg-blue-50">
-                <Link to="/payment" state={{ paymentDetails: { amount: "99900" } }}>
-                  Pagar con Mercado Pago
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+  <a href="https://link.mercadopago.com.co/superservicio">
+    Pagar con Mercado Pago
+    <ArrowRight className="ml-2 h-4 w-4" />
+  </a>
+</Button>
+
             </div>
 
             <div className="md:w-2/5 flex justify-center">
