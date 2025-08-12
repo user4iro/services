@@ -54,10 +54,10 @@ export default function PaymentConfirmation({
   // Bank logo animation states
   const [currentBankIndex, setCurrentBankIndex] = useState(0);
   const banks = [
-    { name: "Nequi", logo: "/images/photo1754964417.jpg" },
-    { name: "Daviplata", logo: "/images/photo1754964416.jpg" },
-    { name: "Bancolombia", logo: "/images/photo1754964416.jpg" },
-    { name: "PSE", logo: "/images/photo1754964416.jpg" },
+    { name: "Nequi", logo: "https://repuestosparamoto.co/wp-content/uploads/2020/07/Nequi.png" },
+    { name: "Daviplata", logo: "https://w7.pngwing.com/pngs/903/869/png-transparent-daviplata-hd-logo.png" },
+    { name: "Bancolombia", logo: "https://static.wikia.nocookie.net/logopedia/images/3/36/Bancolombia_%282006%29_Vertical.svg/revision/latest?cb=20210412202625&path-prefix=es" },
+    { name: "PSE", logo: "https://www.cootransmede.com/wp-content/uploads/2022/02/logo-pse-300x300-1.png" },
   ];
   
   useEffect(() => {
