@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="120" viewBox="0 0 800 120">
+  <!-- Visa -->
+  <g transform="translate(50, 60)">
+    <rect x="-40" y="-30" width="80" height="60" rx="5" fill="#1A1F71"/>
+    <path d="M-20 0 L-30 -20 L-15 -20 L-10 -7 L-5 -20 L10 -20 L0 0 L-20 0 Z" fill="#F7B600"/>
+    <path d="M10 -20 L15 -20 L20 0 L5 0 L10 -20 Z" fill="#F7B600"/>
+    <path d="M25 0 L20 -20 L35 -20 L40 0 L25 0 Z" fill="#F7B600"/>
+  </g>
+
+  <!-- Mastercard -->
+  <g transform="translate(150, 60)">
+    <circle cx="-15" cy="0" r="30" fill="#EB001B"/>
+    <circle cx="15" cy="0" r="30" fill="#F79E1B"/>
+    <path d="M0 -10 A30 30 0 0 1 0 10 A30 30 0 0 1 0 -10 Z" fill="#FF5F00"/>
+  </g>
+
+  <!-- PSE (Colombian payment system) -->
+  <g transform="translate(250, 60)">
+    <rect x="-40" y="-25" width="80" height="50" rx="5" fill="#007CC3"/>
+    <text x="0" y="5" font-family="Arial" font-size="24" fill="white" text-anchor="middle">PSE</text>
+  </g>
+
+  <!-- Nequi (Colombian mobile wallet) -->
+  <g transform="translate(350, 60)">
+    <rect x="-40" y="-25" width="80" height="50" rx="10" fill="#FF2F73"/>
+    <text x="0" y="5" font-family="Arial" font-size="16" fill="white" text-anchor="middle">NEQUI</text>
+  </g>
+
+  <!-- Bancolombia -->
+  <g transform="translate(450, 60)">
+    <rect x="-40" y="-25" width="80" height="50" rx="5" fill="#115740"/>
+    <text x="0" y="5" font-family="Arial" font-size="13" fill="white" text-anchor="middle">BANCOLOMBIA</text>
+  </g>
+
+  <!-- Daviplata -->
+  <g transform="translate(550, 60)">
+    <rect x="-40" y="-25" width="80" height="50" rx="5" fill="#E31937"/>
+    <text x="0" y="5" font-family="Arial" font-size="15" fill="white" text-anchor="middle">DAVIPLATA</text>
+  </g>
+
+  <!-- Efecty -->
+  <g transform="translate(650, 60)">
+    <rect x="-40" y="-25" width="80" height="50" rx="5" fill="#F7B600"/>
+    <text x="0" y="5" font-family="Arial" font-size="17" fill="#333333" text-anchor="middle">EFECTY</text>
+  </g>
+
+  <!-- Tu Compra -->
+  <g transform="translate(750, 60)">
+    <rect x="-40" y="-25" width="80" height="50" rx="5" fill="#004B8D"/>
+    <text x="0" y="5" font-family="Arial" font-size="12" fill="white" text-anchor="middle">TU COMPRA</text>
+  </g>
+</svg>
