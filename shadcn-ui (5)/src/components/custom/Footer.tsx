@@ -20,10 +20,10 @@ export default function Footer() {
               La forma más rápida y segura de pagar tus facturas de servicios en Colombia.
             </p>
             <div className="flex space-x-4">
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-[#FF6B35] transition-colors">
+              <a href="https://www.facebook.com/pagomio.latam/" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-[#FF6B35] transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-[#FF6B35] transition-colors">
+              <a href="https://www.instagram.com/pagomio/?hl=es" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-[#FF6B35] transition-colors">
                 <Instagram size={20} />
               </a>
               <a href="mailto:info@pagomio.co" className="text-gray-500 hover:text-[#FF6B35] transition-colors">
