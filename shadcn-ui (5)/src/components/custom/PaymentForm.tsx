@@ -208,7 +208,7 @@ export default function PaymentForm({ onSubmit }) {
                 )}
 
                 <div className="mb-6">
-                  <label htmlFor="reference" className="block text-gray-700 font-medium mb-2">Número de referencia</label>
+                  <label htmlFor="reference" className="block text-gray-700 font-medium mb-2">Número de convenio o de celular</label>
                   <input
                     type="text"
                     id="reference"
