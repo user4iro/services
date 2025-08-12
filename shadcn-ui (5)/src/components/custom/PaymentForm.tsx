@@ -88,7 +88,6 @@ export default function PaymentForm({ onSubmit }) {
           <h2 className="text-3xl font-bold mb-4 text-gray-900">
             Paga todas tus facturas en un solo lugar
           </h2>
-          {/* Logo section removed as requested */}
           <p className="text-lg text-gray-600">
             Olvidate de las filas y los desplazamientos. En PagoMío puedes pagar todas tus facturas de servicios rápidamente.
           </p>
@@ -280,42 +279,20 @@ export default function PaymentForm({ onSubmit }) {
                     </div>
                   </div>
 
-                  <div className="flex flex-col space-y-4">
-                    <div className="bg-white p-6 rounded-xl shadow-lg">
-                      <div className="flex justify-center gap-4 mb-4">
-                        <img src="/assets/images/logos/pagomiologo.png" alt="PagoMío" className="h-10" />
-                        <img src="/images/payment-logos/mercado-pago-logo.svg" alt="Mercado Pago" className="h-10" />
-                      </div>
-                      <div className="flex flex-wrap justify-center gap-3">
-                        <div className="bg-blue-50 p-2 rounded-lg">
-                          <img src="https://http2.mlstatic.com/storage/logos-api-admin/a5f047d0-9be0-11ec-aad4-c3381f368aaf-m.svg" alt="Visa" className="h-6" />
-                        </div>
-                        <div className="bg-blue-50 p-2 rounded-lg">
-                          <img src="https://http2.mlstatic.com/storage/logos-api-admin/b2c93a40-f3be-11eb-9984-b7076edb0bb7-m.svg" alt="Mastercard" className="h-6" />
-                        </div>
-                        <div className="bg-blue-50 p-2 rounded-lg">
-                          <img src="https://http2.mlstatic.com/storage/logos-api-admin/751ea930-571a-11e8-9a2d-4b2bd7b1bf77-m.svg" alt="American Express" className="h-6" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex space-x-4">
-                      <button 
-                        className="border border-gray-300 text-gray-700 font-medium py-3 px-6 rounded-lg flex items-center transition-all w-1/2 justify-center hover:bg-gray-50"
-                        onClick={handleBack}
-                      >
-                        Volver
-                      </button>
-                      <a 
-                        href="/payment" 
-                        className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-11 rounded-md px-8 bg-white text-[#009ee3] hover:bg-blue-50 w-1/2"
-                      >
-                        Pagar con Mercado Pago
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right ml-2 h-4 w-4">
-                          <path d="M5 12h14"></path>
-                          <path d="m12 5 7 7-7 7"></path>
-                        </svg>
-                      </a>
-                    </div>
+                  <div className="flex space-x-4">
+                    <button 
+                      className="border border-gray-300 text-gray-700 font-medium py-3 px-6 rounded-lg flex items-center transition-all w-1/2 justify-center hover:bg-gray-50"
+                      onClick={handleBack}
+                    >
+                      Volver
+                    </button>
+                    <button 
+                      className="bg-[#FF6B35] hover:bg-[#E85826] text-white font-medium py-3 px-6 rounded-lg flex items-center transition-all w-1/2 justify-center"
+                      onClick={handleSubmit}
+                    >
+                      Confirmar Pago
+                      <Check className="ml-2 w-4 h-4" />
+                    </button>
                   </div>
                 </div>
               </motion.div>
