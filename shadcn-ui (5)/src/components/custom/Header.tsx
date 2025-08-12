@@ -40,10 +40,10 @@ export default function Header() {
           
           <div className="hidden md:flex items-center space-x-6">
             <div className="flex space-x-5 mr-4">
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-[#FF6B35] transition-colors">
+              <a href="https://www.facebook.com/pagomio.latam/" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-[#FF6B35] transition-colors">
                 <Facebook size={18} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-[#FF6B35] transition-colors">
+              <a href="https://www.instagram.com/pagomio/?hl=es" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-[#FF6B35] transition-colors">
                 <Instagram size={18} />
               </a>
               <a href="mailto:info@pagomio.co" className="text-gray-600 hover:text-[#FF6B35] transition-colors">
