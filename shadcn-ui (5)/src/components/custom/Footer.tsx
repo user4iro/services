@@ -79,7 +79,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <Phone className="h-5 w-5 text-[#FF6B35] mr-3 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-600">018000 112115</span>
+                <span className="text-gray-600">4604 4804</span>
               </li>
               <li className="flex items-start">
                 <Mail className="h-5 w-5 text-[#FF6B35] mr-3 flex-shrink-0 mt-0.5" />
@@ -88,7 +88,7 @@ export default function Footer() {
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 text-[#FF6B35] mr-3 flex-shrink-0 mt-0.5" />
                 <span className="text-gray-600">
-                  Calle 100 #15-09, Edificio Torre Empresarial, Bogotá, Colombia
+                  Carrera 50 # 25 - 127 Edificio Comusa Of 202, Medellín, Antioquia
                 </span>
               </li>
             </ul>
