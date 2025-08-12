@@ -218,7 +218,7 @@ export default function PaymentForm({ onSubmit }) {
                     onChange={(e) => setBillNumber(e.target.value)}
                   />
                   <p className="text-xs text-gray-500 mt-1">
-                    Este número se encuentra en la parte superior de tu factura física o PDF
+                    El número de convenio se encuentra en la parte superior de tu factura física o PDF
                   </p>
                 </div>
 
