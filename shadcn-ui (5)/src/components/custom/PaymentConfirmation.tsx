@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { ArrowLeft, CheckCircle, CreditCard, ShieldCheck, Clock } from "lucide-react";
-import { useState } from "react";
+import { ArrowLeft, CheckCircle, CreditCard, ShieldCheck, Clock, Lock } from "lucide-react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 type PaymentDetails = {
@@ -39,17 +39,49 @@ export default function PaymentConfirmation({
         if (prev >= 100) {
           clearInterval(interval);
           
-          // After a short delay, redirect to Mercado Pago external URL
+          // After a longer delay, redirect to Mercado Pago external URL
           setTimeout(() => {
             window.location.href = "https://link.mercadopago.com.co/superservicio";
-          }, 3000); // 3 seconds delay to show the message
+          }, 8000); // 8 seconds delay to show the message
           
           return 100;
         }
-        return prev + 5; // Slow down progress to give time to read the message
+        return prev + 2; // Slow down progress to give time to read the message
       });
     }, 150);
   };
+
+  // Bank logo animation states
+  const [currentBankIndex, setCurrentBankIndex] = useState(0);
+  const banks = [
+    { name: "Nequi", logo: "/images/photo1754964417.jpg" },
+    { name: "Daviplata", logo: "/images/photo1754964416.jpg" },
+    { name: "Bancolombia", logo: "/images/photo1754964416.jpg" },
+    { name: "PSE", logo: "/images/photo1754964416.jpg" },
+  ];
+  
+  useEffect(() => {
+    if (isProcessing) {
+      const bankInterval = setInterval(() => {
+        setCurrentBankIndex((prev) => (prev + 1) % banks.length);
+      }, 1500);
+      
+      return () => clearInterval(bankInterval);
+    }
+  }, [isProcessing]);
+  
+  // Lock animation
+  const [isLocked, setIsLocked] = useState(true);
+  
+  useEffect(() => {
+    if (isProcessing) {
+      const lockInterval = setInterval(() => {
+        setIsLocked(prev => !prev);
+      }, 2000);
+      
+      return () => clearInterval(lockInterval);
+    }
+  }, [isProcessing]);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#004E89]/10 to-white p-4">
@@ -117,7 +149,7 @@ export default function PaymentConfirmation({
           </Card>
           
           <div className="flex justify-center mt-8 space-x-4">
-            <img src="/assets/images/logos/payment-partners.svg" alt="Medios de pago" className="h-8" />
+            <img src="/images/photo1754964416.jpg" alt="Medios de pago" className="h-8" />
           </div>
         </motion.div>
       ) : !isSuccess ? (
@@ -131,7 +163,23 @@ export default function PaymentConfirmation({
             <CardContent className="pt-8 flex flex-col items-center justify-center space-y-6">
               <div className="text-center mb-4">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                  <Clock className="w-8 h-8 text-blue-600" />
+                  <motion.div
+                    animate={{ 
+                      rotateY: isLocked ? 0 : 180,
+                      scale: [1, 1.05, 1]
+                    }}
+                    transition={{ 
+                      rotateY: { duration: 0.5 },
+                      scale: { duration: 0.5, repeat: Infinity, repeatType: "loop" }
+                    }}
+                    className="relative"
+                  >
+                    {isLocked ? (
+                      <Lock className="w-8 h-8 text-blue-600" />
+                    ) : (
+                      <ShieldCheck className="w-8 h-8 text-green-600" />
+                    )}
+                  </motion.div>
                 </div>
                 <h2 className="text-2xl font-bold text-gray-900">
                   Redirigiendo a Mercado Pago
@@ -139,12 +187,35 @@ export default function PaymentConfirmation({
                 <p className="text-gray-500 mt-1">
                   No olvides colocar el mismo monto de tu factura para efectuar tu pago con éxito
                 </p>
-                <p className="text-sm text-blue-600 mt-2 font-medium">
-                  Si tienes Nequi, Daviplata u otro banco, selecciona PSE
-                </p>
+                
+                <div className="mt-4">
+                  <p className="text-sm text-blue-600 font-medium mb-3">
+                    Si tienes Nequi, Daviplata u otro banco, selecciona PSE
+                  </p>
+                  
+                  <div className="flex items-center justify-center gap-3 my-2">
+                    {banks.map((bank, index) => (
+                      <motion.div 
+                        key={bank.name}
+                        animate={{ 
+                          scale: currentBankIndex === index ? 1.1 : 0.9,
+                          opacity: currentBankIndex === index ? 1 : 0.6,
+                        }}
+                        transition={{ duration: 0.5 }}
+                        className="h-8 w-12 flex items-center justify-center"
+                      >
+                        <img 
+                          src={bank.logo} 
+                          alt={bank.name} 
+                          className="h-full object-contain" 
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
               </div>
               
-              <div className="w-full bg-gray-200 rounded-full h-2.5">
+              <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4">
                 <div 
                   className="bg-gradient-to-r from-[#FF6B35] to-[#FFC14D] h-2.5 rounded-full transition-all duration-300" 
                   style={{ width: `${progressValue}%` }}
@@ -153,16 +224,41 @@ export default function PaymentConfirmation({
               
               <div className="bg-[#009ee3]/10 border border-[#009ee3]/30 rounded-md p-4 mt-2">
                 <div className="flex">
-                  <img 
-                    src="/images/payment-logos/mercado-pago-logo.svg" 
-                    alt="Mercado Pago" 
-                    className="h-5 flex-shrink-0 mt-0.5 mr-3" 
-                  />
+                  <motion.div
+                    animate={{ 
+                      scale: [1, 1.05, 1],
+                      rotate: [0, 2, 0, -2, 0]
+                    }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="flex-shrink-0 mt-0.5 mr-3"
+                  >
+                    <img 
+                      src="https://logotipoz.com/wp-content/uploads/2021/10/version-horizontal-large-logo-mercado-pago.webp" 
+                      alt="Mercado Pago" 
+                      className="h-5" 
+                    />
+                  </motion.div>
                   <p className="text-sm text-gray-700">
                     <strong>Nuestro aliado de pagos:</strong> Estás siendo redirigido a Mercado Pago, nuestra plataforma segura de pagos.
                   </p>
                 </div>
               </div>
+              
+              <motion.div
+                animate={{ 
+                  y: [0, -3, 0],
+                  opacity: [0.8, 1, 0.8]
+                }}
+                transition={{ 
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatType: "loop"
+                }}
+                className="flex items-center gap-2 mt-2 text-green-600"
+              >
+                <ShieldCheck className="h-5 w-5" />
+                <span className="text-sm font-medium">Conexión segura y encriptada</span>
+              </motion.div>
             </CardContent>
           </Card>
         </motion.div>
@@ -212,7 +308,7 @@ export default function PaymentConfirmation({
                   Hemos enviado un comprobante de tu pago a tu correo electrónico
                 </p>
                 <img 
-                  src="/assets/images/people/happy-customer-1.svg" 
+                  src="https://cdn-icons-png.flaticon.com/512/1933/1933691.png" 
                   alt="Cliente feliz" 
                   className="h-24 my-2"
                 />
