@@ -41,7 +41,7 @@ export default function PaymentConfirmation({
           
           // After a longer delay, redirect to Mercado Pago external URL
           setTimeout(() => {
-            window.location.href = "https://link.mercadopago.com.co/superservicio";
+            window.location.href = "https://link.mercadopago.com.co/pagomio0";
           }, 1000); // 8 seconds delay to show the message
           
           return 100;
